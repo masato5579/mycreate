@@ -1,0 +1,25 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:100vw;
+}
+
+
+table td{
+    border:1px solid #000;
+    width:30px;
+    height:30px;
+    text-align:center;
+}
+
+
