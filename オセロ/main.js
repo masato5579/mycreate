@@ -3,7 +3,7 @@ window.onload = function () { //ページが読み込まれたらこの処理を
     let order = true;  //trueを取得
     let othelloBlack = '●'; //⚫️を取得
     let othelloWhite = '○'; //○を取得
-    let othelloColor = othelloBlack;
+    let othelloColor = othelloBlack; //othelloBlackをothelloColorに代入
 
 
     for (let i = 0; i < tableElements.length; i++) { //iを$tableElementの数になるまで足していく
@@ -11,7 +11,7 @@ window.onload = function () { //ページが読み込まれたらこの処理を
             tableElements = [].slice.call(tableElements); //配列に変換する
             let index = tableElements.indexOf(this); //クリックしたときの位置の取得tableElementsをクリックしたところが何文字目かを取得
             putOthello(index); //indexを引数にputOthellを呼び出す
-            changeOthello(index);
+            changeOthello(index);　//indexを引数にchangeOthelloを呼び出す
             changeOrder(); //changeOrderを呼び出す
         });
     }
@@ -56,13 +56,18 @@ window.onload = function () { //ページが読み込まれたらこの処理を
             }
             for (let i = 1; i < arrayNumber; i++) {
                 //iがarrayNumberになるまでiを足していく
-                let checkNumber = index - (8 * i);
+                let checkNumber = index - (8 * i);　//index-(8*i)をcheckNumberに代入する
                 if (tableElements[index - (8 * i)].innerHTML.match(othelloColor)) {
+                    //もしtableElementsの[index-(8*i)]のinnerHTMLがothelloColorとmatchしていたら
                     let changeNumber = -((checkNumber - index) / 8);
+                    //-((checkNumber-index)/8)をchangeNumberに代入する
                     for (let n = 0; n < changeNumber - 1; n++) {
+                        //nがchangeNumberになるまでnをたす
                         changeIndexs[n] = checkNumber + (8 * (n + 1));
+                        //checkNumberに（8*(n+1)）を足したものをchangeIndex[n]に代入する
                     }
                     tableElements[changeIndexs[n]].innerHTML = othelloColor;
+                    //tableElements[changeIndexs[n]]のinnerHTMLをothelloColorにする
                 }
 
             }
